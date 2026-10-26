@@ -24,7 +24,9 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
 
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <span className="rounded-full bg-brandOrange/10 px-3 py-1 text-xs font-semibold text-brandOrange uppercase tracking-wider">
-          {p.category === "company" ? "Company Work" : "Personal System"}
+          {("category" in p && p.category === "company") || p.slug === "aniheal"
+            ? "Company Work"
+            : "Personal System"}
         </span>
         <span className="text-sm font-semibold text-navy/50">{p.year}</span>
       </div>

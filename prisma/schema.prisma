@@ -1,19 +1,25 @@
-generator client { provider = "prisma-client-js" }
-datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
 
 model Project {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  title       String
-  summary     String
-  body        String   @default("")
-  image       String?
-  stack       String[]
-  liveUrl     String?
-  repoUrl     String?
-  year        Int
-  published   Boolean  @default(true)
-  createdAt   DateTime @default(now())
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  title     String
+  summary   String
+  body      String   @default("")
+  image     String?
+  stack     String[]
+  liveUrl   String?
+  repoUrl   String?
+  year      Int
+  published Boolean  @default(true)
+  createdAt DateTime @default(now())
 }
 
 model Post {
@@ -39,5 +45,6 @@ model PageView {
   path      String
   referrer  String?
   createdAt DateTime @default(now())
+
   @@index([path])
 }
