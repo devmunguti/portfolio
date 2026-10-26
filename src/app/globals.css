@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #FFFFFF;
+  color: #0B1E36;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid #E85D3B;
+  outline-offset: 3px;
+}
+
+/* Gradient wash that shifts with scroll (--scroll is set by SmoothScroll, 0..1) */
+.wash {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 45% at calc(20% + var(--scroll, 0) * 60%) 15%, rgba(140, 163, 199, .2), transparent 70%),
+    radial-gradient(45% 40% at calc(85% - var(--scroll, 0) * 50%) 70%, rgba(232, 93, 59, .08), transparent 70%),
+    radial-gradient(40% 35% at 50% calc(100% - var(--scroll, 0) * 30%), rgba(200, 215, 235, .15), transparent 70%);
+}
+
+@keyframes pulse-swipe {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.animate-pulse-swipe {
+  animation: pulse-swipe 1.8s ease-in-out infinite;
+}
+
+@layer utilities {
+  .text-brandOrange {
+    color: #E85D3B !important;
+  }
+  .bg-brandOrange {
+    background-color: #E85D3B !important;
+  }
+  .bg-brandOrange-pill {
+    background-color: #EE603D !important;
+  }
+  .bg-brandOrange-hover:hover {
+    background-color: #D44E2D !important;
+  }
+  .border-brandOrange {
+    border-color: #E85D3B !important;
+  }
+  .text-navy {
+    color: #0B1E36 !important;
+  }
+  .bg-navy {
+    background-color: #0B1E36 !important;
+  }
+  .border-navy {
+    border-color: #0B1E36 !important;
+  }
+  .bg-brandSlate {
+    background-color: #8CA3C7 !important;
+  }
+  .font-signature {
+    font-family: var(--font-signature), 'Caveat', cursive, sans-serif !important;
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Nav Bubble Animations */
+@keyframes nav-bubble-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.06);
+  }
+}
+
+@keyframes bubble-glimmer {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.9) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.12) rotate(180deg);
+  }
+}
+
+.animate-nav-bubble {
+  animation: nav-bubble-float 3.5s ease-in-out infinite;
+}
+
+.animate-bubble-glimmer {
+  animation: bubble-glimmer 4s ease-in-out infinite;
+}
+
+/* Smooth Scroll-Reveal System */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: translateY(28px) scale(0.96);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay-75 { transition-delay: 75ms; }
+.delay-150 { transition-delay: 150ms; }
+.delay-225 { transition-delay: 225ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-375 { transition-delay: 375ms; }
+.delay-450 { transition-delay: 450ms; }
+
+/* Subtle floating ambient particle */
+@keyframes ambient-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(12px, -18px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 14px) scale(0.95);
+  }
+}
+
+.animate-ambient-float {
+  animation: ambient-float 9s ease-in-out infinite;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: modal-fade-in 0.22s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: modal-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal-on-scroll,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
