@@ -12,8 +12,38 @@ const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-body" });
 const signature = Caveat({ subsets: ["latin"], variable: "--font-signature", weight: ["600", "700"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://devmunguti.vercel.app"
+  ),
   title: "Augustine Munguti — Software Engineer",
-  description: "Portfolio of Augustine Munguti, a software engineer focused on building web applications and software solutions.",
+  description:
+    "Portfolio of Augustine Munguti, a software engineer focused on building fast, modern web applications and business management systems.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://devmunguti.vercel.app",
+    siteName: "Augustine Munguti — Portfolio",
+    title: "Augustine Munguti — Software Engineer",
+    description:
+      "Portfolio of Augustine Munguti, a software engineer focused on building fast, modern web applications and business management systems.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Augustine Munguti — Software Engineer",
+    description:
+      "Portfolio of Augustine Munguti, a software engineer focused on building fast, modern web applications and business management systems.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

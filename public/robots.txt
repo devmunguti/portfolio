@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block admin & API routes from indexing
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://devmunguti.vercel.app/sitemap.xml
