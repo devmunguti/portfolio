@@ -13,7 +13,7 @@ const signature = Caveat({ subsets: ["latin"], variable: "--font-signature", wei
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://devmunguti.vercel.app"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://augustinemunguti.co.ke"
   ),
   title: "Augustine Munguti — Software Engineer",
   description:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://devmunguti.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://augustinemunguti.co.ke",
     siteName: "Augustine Munguti — Portfolio",
     title: "Augustine Munguti — Software Engineer",
     description:

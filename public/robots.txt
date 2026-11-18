@@ -6,4 +6,4 @@ Disallow: /admin/
 Disallow: /api/
 
 # Sitemap location
-Sitemap: https://devmunguti.vercel.app/sitemap.xml
+Sitemap: https://augustinemunguti.co.ke/sitemap.xml

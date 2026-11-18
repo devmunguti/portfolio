@@ -4,7 +4,7 @@ import { DEFAULT_PROJECTS } from "@/lib/projects";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://devmunguti.vercel.app";
+  "https://augustinemunguti.co.ke";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
